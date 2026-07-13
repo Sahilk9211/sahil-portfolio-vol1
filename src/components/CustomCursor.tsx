@@ -55,7 +55,6 @@ export default function CustomCursor() {
     };
   }, []);
 
-  // hover pe size 20px se 96px tak expand hota hai
   useGSAP(() => {
     gsap.to(cursorRef.current, {
       width: isHovering ? 96 : 20,
@@ -68,7 +67,7 @@ export default function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className={`pointer-events-none fixed left-0 top-0 z-[9999] flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full transition-colors duration-300 ${
+      className={`pointer-events-none fixed left-0 top-0 z-9999 flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full transition-colors duration-300 ${
         isHovering
           ? "bg-black/30 backdrop-blur-md" // Visit state — solid blurred circle
           : "bg-white mix-blend-difference" // normal state — auto-invert dot

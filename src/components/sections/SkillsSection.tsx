@@ -43,9 +43,7 @@ export default function SkillsSection() {
   useGSAP(
     () => {
       const cards = gsap.utils.toArray<HTMLElement>(".tech-card");
-
-      // ---- scroll-triggered stagger reveal (same blur+rise language as
-      //      your ScrollRevealText, so it feels consistent site-wide) ----
+      
       gsap.set(cards, { opacity: 0, y: 40, filter: "blur(6px)" });
 
       gsap.to(cards, {
@@ -69,7 +67,6 @@ export default function SkillsSection() {
     { scope: sectionRef },
   );
 
-  // ---- per-card hover tilt, driven by cursor position inside the card ----
   const handleTilt = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
@@ -104,7 +101,7 @@ export default function SkillsSection() {
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-[#e7e6e3] px-4 pb-20 md:pb-20 lg:py-20 text-[#202020] md:px-14"
     >
-      {/* Heading — same reusable component you already use elsewhere */}
+      {/* Heading */}
       <div className="overflow-hidden">
         <RevealHeading
           containerClassName=""
@@ -114,8 +111,7 @@ export default function SkillsSection() {
         </RevealHeading>
       </div>
 
-      {/* thin marquee strip — reuses your existing ScrollVelocity component,
-          gives a bit of motion/texture without competing with the grid */}
+      {/* thin marquee strip */}
       <div className="my-10 border-y border-black/10 py-3">
         <ScrollVelocity
           texts={["TOOLS I WORK WITH •"]}

@@ -6,8 +6,8 @@ import RevealHeading from "../RevealHeading";
 
 export interface ContactSectionProps {
   eyebrow?: string;
-  headline?: [string, string]; // two lines, e.g. ["Let's start", "from nothin'"]
-  bigWord?: string; // giant bottom word, cut off by the section
+  headline?: [string, string];
+  bigWord?: string;
   bookCallHref?: string;
   emailHref?: string;
   socials?: { label: string; href: string }[];

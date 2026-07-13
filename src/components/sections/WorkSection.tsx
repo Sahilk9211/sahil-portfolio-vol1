@@ -41,8 +41,8 @@ const projects = [
 ];
 
 export default function WorkSection() {
-  const sectionRef = useRef<HTMLElement>(null); // poora section — ye pin hoga
-  const trackRef = useRef<HTMLDivElement>(null); // sirf ye row horizontally move karega
+  const sectionRef = useRef<HTMLElement>(null); 
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -92,7 +92,7 @@ export default function WorkSection() {
         </RevealHeading>
       </div>
 
-      {/* Projects row — GSAP isi div ko horizontally translate karega */}
+      {/* Projects row*/}
       <div ref={trackRef} className="flex items-center gap-10 w-max pr-24">
         {projects.map((project) => (
           <div
@@ -103,7 +103,7 @@ export default function WorkSection() {
               {project.number} / {project.title}
             </span>
 
-            {/* image — hover pe global CustomCursor "Visit" label dikhata hai */}
+            {/* image */}
             <a
               href={project.link}
               target="_blank"

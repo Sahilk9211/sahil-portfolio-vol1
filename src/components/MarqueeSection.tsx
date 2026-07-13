@@ -7,9 +7,6 @@ const MarqueeSection = () => {
       <ScrollVelocity
         texts={[
           "Fullstack developer -",
-          // "SELECTED PROJECTS -",
-          // "SCROLL EXPERIENCES •",
-          // "MODERN INTERFACES •",
         ]}
         velocity={60}
         numCopies={6}
