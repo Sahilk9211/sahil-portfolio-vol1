@@ -8,25 +8,21 @@ import ContactSection from "@/components/sections/ContactSection";
 export default function Home() {
   return (
     <main>
-      {/* Sirf Hero + About pe stacking/lag effect — baaki normal scroll mein hain */}
       <StackedSections
         items={[
           {
             id: "hero",
-            speed: 45, // slow lag
+            speed: 45,
             content: <HeroSection />,
           },
           {
             id: "about",
-            speed: 0, // is group ka last item, isliye normal rehta hai
-            // content: <AboutSection />,
+            speed: 0,
             content: <AboutSection />,
           },
         ]}
       />
 
-      {/* Baki sections abhi plain hain — koi scrub/pin effect nahi.
-          Baad mein inpe bhi kuch decide karenge. */}
       <WorkSection />
       <SkillsSection />
       <ContactSection />

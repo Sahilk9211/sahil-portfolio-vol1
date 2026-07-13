@@ -9,12 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 export type StackItem = {
   id: string;
   content: React.ReactNode;
-  /**
-   * yPercent lag amount — jitna zyada value utna zyada section "peeche"
-   * khinchta hai apne scroll-through ke dauraan, jisse SLOW feel aata hai.
-   * Kam value = kam lag = FAST feel (agla section jaldi ispe chadhta hai).
-   * Koi pin/sticky nahi lagi — sirf transform-based scrub hai.
-   */
   speed?: number;
 };
 
@@ -29,10 +23,7 @@ export default function StackedSections({ items }: { items: StackItem[] }) {
       pages.forEach((page, i) => {
         const isLast = i === total - 1;
         const speed = items[i]?.speed ?? 30;
-
-        // Har page apne khud ke scroll-through range mein animate hota hai:
-        // start = jab page viewport ke bottom se touch kare (clamp se page-bounds ke andar hi rahega)
-        // end   = jab page viewport ke top se poora nikal jaaye
+     
         gsap
           .timeline({
             scrollTrigger: {

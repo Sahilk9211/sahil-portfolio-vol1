@@ -55,7 +55,6 @@ export default function CustomCursor() {
     };
   }, []);
 
-  // hover pe size 20px se 96px tak expand hota hai
   useGSAP(() => {
     gsap.to(cursorRef.current, {
       width: isHovering ? 96 : 20,

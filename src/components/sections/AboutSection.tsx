@@ -16,13 +16,3 @@ export default function AboutSection() {
     </section>
   );
 }
-
-//  I build fast
-//           {/* <ThunderIcon /> */}, interactive
-//           {/* <SmileIcon /> */}
-//           and scalable web experiences that combine thoughtful design
-//           {/* <HeartIcon /> */}, smooth animations
-//           {/* <SparkleIcon /> */}
-//           and clean code
-//           {/* <CleanCodeIcon /> */}— creating products that people enjoy using
-//           and businesses can rely on.

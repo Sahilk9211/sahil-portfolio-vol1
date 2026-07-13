@@ -1,13 +1,6 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Google+Sans:opsz,wght@17..18,500&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;1,9..40,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hibur+Mono&display=swap");
 @import "tailwindcss";
-/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-
-.google-sans {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-} */
 
 .dm-sans {
   font-family: "DM Sans", sans-serif;
@@ -51,14 +44,11 @@ body {
   background-color: var(--background);
 }
 
-/* Lenis ke smooth-scroll ke sath native scrollbar theek se dikhe */
 html.lenis,
 html.lenis body {
   height: auto;
 }
 
-/* Sirf desktop/pointer devices pe hide karo — touch devices pe cursor
-   hota hi nahi, isliye unpe koi issue nahi aayega */
 @media (hover: hover) and (pointer: fine) {
   * {
     cursor: none !important;
