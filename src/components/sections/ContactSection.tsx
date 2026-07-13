@@ -19,7 +19,7 @@ const defaultSocials = [
     href: "https://www.linkedin.com/in/sahil-khan-developer/",
   },
   { label: "Instagram", href: "https://www.instagram.com/sahil_04.09" },
-  { label: "TWITTER", href: "https://x.com/SahilKhan0409" },
+  { label: "Twitter", href: "https://x.com/SahilKhan0409" },
 ];
 
 export default function ContactSection({
