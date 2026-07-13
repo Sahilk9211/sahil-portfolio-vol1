@@ -42,6 +42,7 @@ body {
     Arial, sans-serif;
   overscroll-behavior: none;
   background-color: var(--background);
+  background-color: black;
 }
 
 html.lenis,

@@ -14,7 +14,7 @@ export interface IntroProps {
 
 // Ek jagah timing tune karo — poore intro ki speed yahin se control hogi
 const ENTER_DURATION = 0.06;
-const HOLD_DELAY = 0.1;
+const HOLD_DELAY = 0.2;
 const EXIT_DURATION = 0.06;
 const SLIDE_DURATION = 0.8;
 
