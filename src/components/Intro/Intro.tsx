@@ -12,17 +12,30 @@ export interface IntroProps {
   onComplete?: () => void;
 }
 
+// Ek jagah timing tune karo — poore intro ki speed yahin se control hogi
+const ENTER_DURATION = 0.06;
+const HOLD_DELAY = 0.1;
+const EXIT_DURATION = 0.06;
+const SLIDE_DURATION = 0.8;
+
 const Intro = ({ onComplete = () => {} }: IntroProps) => {
   const [index, setIndex] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
+  const onCompleteRef = useRef(onComplete);
+
+  // onComplete ka latest reference always ready rakho, bina effect ko
+  // restart kiye — isse useEffect dependency se onComplete hata sakte hain
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useGSAP(() => {
     gsap.fromTo(
       textRef.current,
       { opacity: 0, y: 40 },
-      { opacity: 1, y: 0, duration: 0.1, ease: "power3.out" },
+      { opacity: 1, y: 0, duration: ENTER_DURATION, ease: "power3.out" },
     );
   }, []);
 
@@ -36,33 +49,31 @@ const Intro = ({ onComplete = () => {} }: IntroProps) => {
     tl.to(textRef.current, {
       opacity: 1,
       y: 0,
-      duration: 0.1,
+      duration: ENTER_DURATION,
       ease: "power3.out",
     });
 
     if (isLast) {
-      // ---- Last word ka exit — ab baaki jaisa hi simple, koi curve nahi ----
       tl.to(textRef.current, {
         opacity: 0,
-        duration: 0.1,
-        delay: 0.1,
+        duration: EXIT_DURATION,
+        delay: HOLD_DELAY,
         y: -50,
         ease: "power3.inOut",
         onComplete: () => {
           gsap.to(containerRef.current, {
             yPercent: -100,
-            duration: 1,
+            duration: SLIDE_DURATION,
             ease: "power4.inOut",
-            onComplete,
+            onComplete: () => onCompleteRef.current(),
           });
         },
       });
     } else {
-      // ---- baaki sab greetings ka simple straight exit ----
       tl.to(textRef.current, {
         opacity: 0,
-        duration: 0.1,
-        delay: 0.1,
+        duration: EXIT_DURATION,
+        delay: HOLD_DELAY,
         y: -50,
         ease: "power3.inOut",
         onComplete: () => {
@@ -74,7 +85,8 @@ const Intro = ({ onComplete = () => {} }: IntroProps) => {
     return () => {
       tl.kill();
     };
-  }, [index, onComplete]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index]); // sirf index pe depend — onComplete ab ref se aayega, refire nahi hoga
 
   return (
     <div
