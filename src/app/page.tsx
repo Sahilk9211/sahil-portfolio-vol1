@@ -7,7 +7,7 @@ import ContactSection from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-[#e7e6e3]">
       <StackedSections
         items={[
           {
