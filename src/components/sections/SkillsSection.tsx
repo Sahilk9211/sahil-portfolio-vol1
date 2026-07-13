@@ -43,7 +43,7 @@ export default function SkillsSection() {
   useGSAP(
     () => {
       const cards = gsap.utils.toArray<HTMLElement>(".tech-card");
-      
+
       gsap.set(cards, { opacity: 0, y: 40, filter: "blur(6px)" });
 
       gsap.to(cards, {
@@ -112,19 +112,19 @@ export default function SkillsSection() {
       </div>
 
       {/* thin marquee strip */}
-      <div className="my-10 border-y border-black/10 py-3">
+      {/* <div className="my-10 border-y border-black/10 py-3">
         <ScrollVelocity
           texts={["TOOLS I WORK WITH •"]}
           velocity={35}
           numCopies={50}
           className="text-xs md:text-sm tracking-[0.3em] uppercase text-black/40 mx-6"
         />
-      </div>
+      </div> */}
 
       {/* Grid of tech cards with hover tilt */}
       <div
         ref={gridRef}
-        className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-6"
+        className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-6 pt-10"
         style={{ perspective: "1000px" }}
       >
         {technologies.map((tech) => {
